@@ -4,5 +4,4 @@ Install NPM: npm i
 
 Install nodemon: npm i nodemon
 
-In file package.json, modify something like the picture: 
-
+Run the project with localhost:8000: npm run dev
