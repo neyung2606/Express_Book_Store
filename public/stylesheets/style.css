@@ -1146,3 +1146,33 @@ footer .copy-right .share {
     margin-top: 10px; } }
 
 /*# sourceMappingURL=styles.css.map */
+
+.slider .carousel-item .carousel-caption {
+    top: 40%;
+}
+.slider .carousel-item .carousel-caption h3, .carousel-item .carousel-caption h5 {
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+.slider .carousel-item {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.testimonial-sec .carousel-item {
+    text-align: center;
+    padding: 0 140px 20px;
+}
+.box-user {
+    padding: 2rem;
+}
+.testimonial-sec ol li {
+    background-color: gray;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.testimonial-sec .carousel-indicators .active {
+    transform: scale(1.6)!important;
+    background-color: #ffaf00;
+}

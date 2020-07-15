@@ -4,7 +4,8 @@ const morgan = require("morgan");
 const userRoutes = require("./routes/user");
 const indexRoutes = require("./routes/index");
 const bodyParser = require('body-parser');
-// app.set('views', path.join(__dirname, 'views'));
+const bookRoutes = require("./routes/book");
+// connect DB
 app.set('view engine', 'ejs');
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://localhost:27017/post';
@@ -19,14 +20,13 @@ mongoose.connect(mongoDB, {
         console.log(`connection failed. Error: ${err}`)
     }
 );
-// var db = mongoose.connection;
-// db.on("error", console.error.bind(console, 'MongoDB connection error: '));
+
 
 app.use(morgan("dev"));
 app.use(bodyParser.json())
 app.use(express.static('public'))
 
-
+app.use("/book", bookRoutes);
 app.use("/", indexRoutes);
 app.use("/user", userRoutes);
 const port = 8000;
