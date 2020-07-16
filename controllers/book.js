@@ -5,11 +5,12 @@ exports.getBooks = (req, res) => {
         if(err) {
             res.json({
                 error: err
-            })
+            });
         }
-        res.json({
+        res.send({
             books: books
         })
+        console.log(books);
     })
 }
 

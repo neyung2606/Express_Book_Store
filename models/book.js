@@ -17,6 +17,11 @@ const bookSchema = new mongoose.Schema({
         required: "Price is required",
         minlength: 4
     },
+    quantity: {
+        type: Number,
+        required: "Quantity is required",
+        min: 1
+    },
     description: {
         type: String,
     },
