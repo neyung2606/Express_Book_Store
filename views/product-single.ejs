@@ -78,7 +78,6 @@
     </nav>
     <section class="product-sec">
         <div class="container">
-            <h1><%= book[0].name %></h1>
             <div class="row">
                 <div class="col-md-6 slider-sec">
                     <!-- main slider carousel -->
@@ -86,13 +85,7 @@
                         <!-- main slider carousel items -->
                         <div class="carousel-inner">
                             <div class="active item carousel-item" data-slide-number="0">
-                                <img src="/images/<%= book[0].img %>" class="img-fluid">
-                            </div>
-                            <div class="item carousel-item" data-slide-number="1">
-                                <img src="/images/product2.jpg" class="img-fluid">
-                            </div>
-                            <div class="item carousel-item" data-slide-number="2">
-                                <img src="/images/product3.jpg" class="img-fluid">
+                                <img src="../images/<%= book[0].img %>" class="img-fluid">
                             </div>
                         </div>
                         <!-- main slider carousel nav controls -->
@@ -103,45 +96,92 @@
                                     <img src="/images/<%= book[0].img %>" class="img-fluid">
                                 </a>
                             </li>
-                            <!-- <li class="list-inline-item">
-                                <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
-                                    <img src="/images/product2.jpg" class="img-fluid">
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
-                                    <img src="images/product3.jpg" class="img-fluid">
-                                </a>
-                            </li> -->
+                            
                         </ul>
                     </div>
                     <!--/main slider carousel-->
                 </div>
                 <div class="col-md-6 slider-content">
-                    <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's printer took a galley of type and Scrambled it to make a type and typesetting
-                        industry. Lorem Ipsum has been the book. </p>
-                    <p>t has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's printer took a galley of type and</p> -->
-                        <p><%= book[0].description %></p>
-                    <ul>
-                        <li>
-                            <span class="name">Digital List Price</span><span class="clm">:</span>
-                            <span class="price">$<%= book[0].price %></span>
-                        </li>
-                        <li>
-                            <span class="name">Print List Price</span><span class="clm">:</span>
-                            <span class="price">$<%= book[0].price %></span>
-                        </li>
-                        <li>
-                            <span class="name">Kindle Price</span><span class="clm">:</span>
-                            <span class="price final">$<%= book[0].price %></span>
-                        </li>
-                        <li><span class="save-cost">$<%= book[0].price %></span></li>
-                    </ul>
+                    <h1><%= book[0].name %></h1>
+                    <div class="info-book">
+                        <div class="hor_one">
+                            <div class="book-publishing">
+                                <span>Nhà cung cấp:</span>
+                                <span class="hightlight"><%= book[0].supplier %></span>
+                            </div>
+                            <div class="book-author">
+                                <span>Tác giả:</span>
+                                <span class="hightlight"><%= book[0].author %></span>
+                            </div>
+                        </div>
+                        <div class="hor_two">
+                            <div class="book-publishing">
+                                <span>Hình thức bìa:</span>
+                                <span class="hightlight"><%= book[0].cover %></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 price">
+                        <div class="price-box">
+                            <p class="hightlight"><%= book[0].price %> đ</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 quantity">
+                        <div class="quantity-box">
+                            <label>Số lượng: </label>
+                            <div class="product-view-quantity">
+                                <a class="btn-sub-quantity" onclick="subQuan()">-</a>
+                                <input type="text" maxvalue="999" id="qty" value="1" onkeypress="return validateNumber(event)"> 
+                                <a class="btn-add-quantity" onclick="addQuan()">+</a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="btn-sec">
                         <button class="btn ">Add To cart</button>
                         <button class="btn black">Buy Now</button>
+                    </div>
+                </div>
+                <div class="content-product-view col-md-12">
+                    <div class="product-view-tab">
+                        <div class="header-product-view-tab">
+                            <h3>Thông tin sản phẩm</h1>
+                        </div>
+                        <div class="content-product-view-tab">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <th>Mã hàng</th>
+                                    <td><%= book[0]._id %></td>
+                                </tr>
+                                <tr>
+                                    <th>Tên nhà cung cấp</th>
+                                    <td><%= book[0].supplier %></td>
+                                </tr>
+                                <tr>
+                                    <th>Tác giả</th>
+                                    <td><%= book[0].author %></td>
+                                </tr>
+                                <tr>
+                                    <th>NXB</th>
+                                    <td><%= book[0].publishing %></td>
+                                </tr>
+                                <tr>
+                                    <th>Năm XB</th>
+                                    <td><%= book[0].year %></td>
+                                </tr>
+                                <tr>
+                                    <th>Số Trang</th>
+                                    <td><%= book[0].page %></td>
+                                </tr>
+                                <tr>
+                                    <th>Hình thức</th>
+                                    <td><%= book[0].cover %></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <hr >
+                        <div class="product-view-description">
+                            <p><%= book[0].description %></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -261,6 +301,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <script src="../javascripts/product-single.js"></script>
 </body>
 
 </html>

@@ -24,7 +24,34 @@ const bookSchema = new mongoose.Schema({
     },
     description: {
         type: String,
+        required: "Description is required"
     },
+    supplier: {
+        type: String,
+        required: "Supplier is required"
+    },
+    publishing: {
+        type: String,
+        required: "Publishing is required"
+    },
+    author: {
+        type: String,
+        required: "Author is required"
+    },
+    year: {
+        type: Number,
+        required: "Year is required",
+        min: 1900,
+        max: 9999
+    },
+    page: {
+        type: Number,
+        required: "Page is required"
+    },
+    cover: {
+        type: String,
+        required: "Cover is required"
+    }
 });
 
 module.exports = mongoose.model("Book", bookSchema);

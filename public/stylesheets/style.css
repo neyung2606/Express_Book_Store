@@ -1165,9 +1165,8 @@ header .cart .quntity {
 }
 .product-sec h1 {
   font-size: 36px;
-  font-weight: 500;
-  margin-bottom: 40px;
-  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 20px;
   color: #363636;
 }
 .product-sec #myCarousel .list-inline {
@@ -1181,7 +1180,7 @@ header .cart .quntity {
   position: absolute;
   top: 0;
   right: 0;
-  left: initial;
+  left: 0;
   bottom: inherit;
   display: block;
   margin-right: 0;
@@ -1204,7 +1203,7 @@ header .cart .quntity {
 }
 .product-sec .carousel-inner {
   width: 360px;
-  float: left;
+  float: right;
   margin-right: 15px;
 }
 .product-sec .slider-sec {
@@ -1230,17 +1229,23 @@ header .cart .quntity {
   float: left;
   width: 100%;
 }
-.product-sec .slider-content ul li span {
-  width: 180px;
-  font-weight: 300;
-  display: inline-block;
-  float: left;
+.hor_one, .hor_two {
+  line-height: 2rem;
 }
-.product-sec .slider-content ul li span.price {
-  padding-left: 20px;
-  font-weight: 600;
-  text-decoration: line-through;
-  width: 100px;
+.product-sec .slider-content .info-book {
+  font-size: 14px;
+}
+.product-sec .slider-content .info-book .book-publishing {
+  display: inline-block;
+  width: 60%;
+  white-space: nowrap;
+}
+.product-sec .slider-content .info-book .book-author {
+  display: inline-block;
+  width: 39%;
+}
+.hightlight {
+  color: #ff9700;
 }
 .product-sec .slider-content ul li span.final {
   font-size: 24px;
@@ -1266,12 +1271,64 @@ header .cart .quntity {
   margin-right: 15px;
 }
 
+.price {
+  margin-top: 30px;
+  padding-left: 0;
+}
+.price .price-box p {
+  font-size: 32px;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+.quantity {
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.quantity-box label {
+  display: inline-block;
+  min-width: 30px;
+}
+.quantity-box .product-view-quantity {
+  display: inline-block;
+  min-width: 30px;
+  border: 1px solid black;
+}
+.quantity-box .product-view-quantity input {
+  border: none !important;
+  width: 3em !important;
+  font-weight: 650;
+  font-size: 1.2em;
+  text-align: center;
+}
+.quantity-box .product-view-quantity a {
+  padding: 12px;
+  height: auto;
+  text-align: center;
+}
+
 .related-books h2 {
   font-size: 36px;
   font-weight: 500;
   margin-bottom: 40px;
   text-transform: uppercase;
   color: #363636;
+}
+.content {
+  width: 100%;
+}
+.content-product-view {
+  padding: 0 15px;
+  margin-top: 30px;
+}
+.header-product-view-tab {
+  margin-bottom: 20px;
+}
+.content-product-view table th {
+ max-width: 50px;
+ line-height: 50px;
+ font-weight: 400;
 }
 
 @media only screen and (max-width: 1024px) {
