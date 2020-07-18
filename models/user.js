@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: "Name is required",
+        required: "Username is required",
         minlength: 4,
         maxlength: 150
     },
@@ -27,6 +27,10 @@ const userSchema = new mongoose.Schema({
     },
     gender: {
         type: Boolean
+    },
+    role: {
+        type: String,
+        required: "Role is required"
     }
 });
 

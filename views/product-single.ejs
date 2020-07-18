@@ -79,13 +79,14 @@
     <section class="product-sec">
         <div class="container">
             <div class="row">
+            <% book.forEach( book => { %>
                 <div class="col-md-6 slider-sec">
                     <!-- main slider carousel -->
                     <div id="myCarousel" class="carousel slide">
                         <!-- main slider carousel items -->
                         <div class="carousel-inner">
                             <div class="active item carousel-item" data-slide-number="0">
-                                <img src="../images/<%= book[0].img %>" class="img-fluid">
+                                <img src="../images/<%= book.img %>" class="img-fluid">
                             </div>
                         </div>
                         <!-- main slider carousel nav controls -->
@@ -93,37 +94,36 @@
                             <li class="list-inline-item active">
                                 <a id="carousel-selector-0" class="selected" data-slide-to="0"
                                     data-target="#myCarousel">
-                                    <img src="/images/<%= book[0].img %>" class="img-fluid">
+                                    <img src="/images/<%= book.img %>" class="img-fluid">
                                 </a>
                             </li>
-                            
                         </ul>
                     </div>
                     <!--/main slider carousel-->
                 </div>
                 <div class="col-md-6 slider-content">
-                    <h1><%= book[0].name %></h1>
+                    <h1><%= book.name %></h1>
                     <div class="info-book">
                         <div class="hor_one">
                             <div class="book-publishing">
                                 <span>Nhà cung cấp:</span>
-                                <span class="hightlight"><%= book[0].supplier %></span>
+                                <span class="hightlight"><%= book.supplier %></span>
                             </div>
                             <div class="book-author">
                                 <span>Tác giả:</span>
-                                <span class="hightlight"><%= book[0].author %></span>
+                                <span class="hightlight"><%= book.author %></span>
                             </div>
                         </div>
                         <div class="hor_two">
                             <div class="book-publishing">
                                 <span>Hình thức bìa:</span>
-                                <span class="hightlight"><%= book[0].cover %></span>
+                                <span class="hightlight"><%= book.cover %></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12 price">
                         <div class="price-box">
-                            <p class="hightlight"><%= book[0].price %> đ</p>
+                            <p class="hightlight"><%= book.price %> đ</p>
                         </div>
                     </div>
                     <div class="col-md-12 quantity">
@@ -150,40 +150,41 @@
                             <table style="width: 100%;">
                                 <tr>
                                     <th>Mã hàng</th>
-                                    <td><%= book[0]._id %></td>
+                                    <td><%= book._id %></td>
                                 </tr>
                                 <tr>
                                     <th>Tên nhà cung cấp</th>
-                                    <td><%= book[0].supplier %></td>
+                                    <td><%= book.supplier %></td>
                                 </tr>
                                 <tr>
                                     <th>Tác giả</th>
-                                    <td><%= book[0].author %></td>
+                                    <td><%= book.author %></td>
                                 </tr>
                                 <tr>
                                     <th>NXB</th>
-                                    <td><%= book[0].publishing %></td>
+                                    <td><%= book.publishing %></td>
                                 </tr>
                                 <tr>
                                     <th>Năm XB</th>
-                                    <td><%= book[0].year %></td>
+                                    <td><%= book.year %></td>
                                 </tr>
                                 <tr>
                                     <th>Số Trang</th>
-                                    <td><%= book[0].page %></td>
+                                    <td><%= book.page %></td>
                                 </tr>
                                 <tr>
                                     <th>Hình thức</th>
-                                    <td><%= book[0].cover %></td>
+                                    <td><%= book.cover %></td>
                                 </tr>
                             </table>
                         </div>
                         <hr >
                         <div class="product-view-description">
-                            <p><%= book[0].description %></p>
+                            <p><%= book.description %></p>
                         </div>
                     </div>
                 </div>
+                <% }) %>
             </div>
         </div>
     </section>
@@ -199,7 +200,9 @@
                                 <h3><%= item.name %></h3>
                                 <h6><span class="price">$<%= item.price %></span> / <a href="#">Buy Now</a></h6>
                                 <div class="hover">
-                                    <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                                    <a href="/<%= item.name %>">
+                                        <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                                    </a>
                                 </div>
                             </div>
                         </div>

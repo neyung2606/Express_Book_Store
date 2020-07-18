@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Book = require("../models/book")
 
-
+router.get("/login", async (req, res) => {
+    res.render("login")
+})
 router.get("/", async (req, res) => {
     const books = await Book.find({});
     res.render("home", {books: books})
@@ -18,5 +20,4 @@ router.get("/:name", async (req, res) => {
 router.get("/shop", (req, res) => {
     res.render("shop")
 })
-
 module.exports = router;

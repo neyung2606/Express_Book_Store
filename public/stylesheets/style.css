@@ -1237,7 +1237,6 @@ header .cart .quntity {
 }
 .product-sec .slider-content .info-book .book-publishing {
   display: inline-block;
-  width: 60%;
   white-space: nowrap;
 }
 .product-sec .slider-content .info-book .book-author {
@@ -1326,9 +1325,12 @@ header .cart .quntity {
   margin-bottom: 20px;
 }
 .content-product-view table th {
- max-width: 50px;
+ max-width: 100px;
  line-height: 50px;
  font-weight: 400;
+}
+.content-product-view table td {
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 1024px) {
