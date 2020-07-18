@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "netlify-lambda build src",
-    "dev": "nodemon src/app.js",
-    "postinstall": "netlify-lambda install",
-    "start": "node src/app.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
