@@ -1232,16 +1232,13 @@ header .cart .quntity {
 .hor_one, .hor_two {
   line-height: 2rem;
 }
+.hor_one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .product-sec .slider-content .info-book {
   font-size: 14px;
-}
-.product-sec .slider-content .info-book .book-publishing {
-  display: inline-block;
-  white-space: nowrap;
-}
-.product-sec .slider-content .info-book .book-author {
-  display: inline-block;
-  width: 39%;
 }
 .hightlight {
   color: #ff9700;
@@ -1302,9 +1299,10 @@ header .cart .quntity {
   text-align: center;
 }
 .quantity-box .product-view-quantity a {
-  padding: 12px;
+  padding: 6px 12px;
   height: auto;
   text-align: center;
+  cursor: pointer;
 }
 
 .related-books h2 {
