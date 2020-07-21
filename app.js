@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const userRoutes = require("./routes/user");
 const indexRoutes = require("./routes/index");
 const bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 const bookRoutes = require("./routes/book");
 const dotenv = require('dotenv');
 // connect DB
@@ -27,7 +28,9 @@ mongoose.connect(mongoDB, {
 
 app.use(morgan("dev"));
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
+app.use(cookieParser())
 
 app.use("/book", bookRoutes);
 app.use("/", indexRoutes);

@@ -157,6 +157,14 @@ header .main-menu .navbar-light .navbar-nav .navbar-item {
   padding: 0 15px;
   position: relative;
 }
+header .main-menu .navbar-light .navbar-collapse {
+  align-items: baseline;
+}
+header .main-menu .navbar-light .navbar-collapse .navbar-item .dropdown-toggle {
+  border: none;
+  background-color: transparent;
+  max-width: 500px;
+}
 header .main-menu .navbar-light .navbar-nav .navbar-item:after {
   content: "";
   width: 1px;
@@ -995,6 +1003,7 @@ header .cart .quntity {
   margin-bottom: 32px;
   text-transform: uppercase;
   color: #363636;
+  text-align: center;
 }
 .static p {
   font-size: 16px;
@@ -1002,24 +1011,34 @@ header .cart .quntity {
   line-height: 30px;
   margin-bottom: 25px;
 }
+.btn-form {
+  position: relative;
+  display: flex;
+}
+.btn-form .btn{
+  float: none!important;
+  margin: 0 auto;
+}
+.btn-form .btn:hover {
+  border-color: black;
+}
+.register-div {
+  text-align: center;
+}
+.register-div h5 {
+  float: none!important;
+}
 .static .img-sec {
   clear: both;
   float: left;
   width: 100%;
 }
 .static .form {
-  margin-top: 50px;
-  margin-bottom: 100px;
-}
-.static .form input {
-  width: 100%;
-  height: 50px;
-  padding-left: 20px;
-  margin-bottom: 35px;
+  max-width: 50%;
+  margin: 50px auto;
 }
 .static .form .btn {
-  padding: 12px 60px 10px;
-  float: left;
+  padding: 6px 12px;
   font-weight: 300;
 }
 .static .form h5 {

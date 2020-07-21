@@ -80,22 +80,28 @@
         <div class="container">
             <h1>My Account / Login</h1>
             <div class="form">
-                <form>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <input placeholder="Enter User Name" required>
-                            <span class="required-star">*</span>
-                        </div>
-                        <div class="col-md-5">
-                            <input type="email" placeholder="Enter Email Address" required>
-                            <span class="required-star">*</span>
-                        </div>
-                        <div class="col-lg-8 col-md-12">
-                            <button class="btn black">Login</button>
-                            <h5>not Registered? <a href="register.html">REgister here</a></h5>
-                        </div>
+                <form action="/login" method="POST">
+                    <div class="form-group">
+                      <label for="username">Username</label>
+                      <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" required>
+                      <!-- <span class="required-star">*</span> -->
                     </div>
-                </form>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
+                      <!-- <span class="required-star">*</span> -->
+                    </div>
+                    <!-- <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">I agree</label>
+                    </div> -->
+                    <div class="form-group btn-form">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="form-group register-div">
+                        <h5>not Registered? <a href="/register">REgister here</a></h5>
+                    </div>
+                  </form>
             </div>
         </div>
     </section>
