@@ -19,7 +19,6 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: "Email is required",
-        minlength: 4,
         unique: true,
         lowercase: true,
         validate: value => {

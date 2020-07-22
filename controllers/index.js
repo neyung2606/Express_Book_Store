@@ -1,12 +1,8 @@
 const Book = require('../models/book');
 const User = require('../models/user');
-const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-var header;
 
 exports.loadIndex = async (req, res) => {
-    header = await 'http://' + req.headers.host;
-    console.log("header: ", header)
     const books = await Book.find({});
     const id = await req.cookies.userID;
     id === undefined ? user = undefined : user = await User.find({_id: id});
@@ -31,29 +27,28 @@ exports.loadShop = async (req, res) => {
 exports.loadLogin = async (req, res) => {
     const id = await req.cookies.userID;
     id === undefined ? user = undefined : user = await User.find({_id: id});
-    return user === undefined ? res.render("login") : res.redirect(`${header}`)
+    return user === undefined ? res.render("login", {error: false}) : res.redirect('/')
 }
 exports.checkLogin = async (req, res) => {
-    const pass = await req.body.password;
     const user = await User.find({username: req.body.username});
+    const pass = await req.body.password;
     if (user[0].password !== undefined) {
         const isPasswordMatch = await bcrypt.compare(pass, user[0].password);
         if (isPasswordMatch) {
             res.cookie('userID', user[0]._id );
-            console.log(header)
-            res.redirect(`${header}`);
+            res.redirect('/');
         }
         else {
-            res.redirect(`${header}/login`);
+            res.render('login', {error: true});
         }
     }
     else {
-        res.redirect(`${header}/login`);
+        res.redirect('/login', {error: true});
     }
 }
 exports.logOut = async (req, res) => {
     res.clearCookie("userID");
-    res.redirect(`${header}`)
+    res.redirect('/')
 }
 exports.registerUser = async (req, res) => {
     res.render("register");
@@ -64,5 +59,5 @@ exports.insertUser = async (req, res) => {
     console.log(reqUser)
     const user = await User.create(reqUser);
     user.save();
-    res.redirect(`${header}/login`);
+    res.redirect('/login');
 }

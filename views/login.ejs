@@ -79,17 +79,23 @@
     <section class="static about-sec">
         <div class="container">
             <h1>My Account / Login</h1>
+            <% if (error) { %>
+                <div class="error-form card">
+                    <div class="card-body">
+                        <h5 class="card-title">Login failed!!</h5>
+                        <p class="card-text">Tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra lại</p>
+                    </div>
+                </div>
+            <% } %>
             <div class="form">
-                <form action="/login" method="POST">
+                <form method="POST" action="/login" id="loginForm">
                     <div class="form-group">
                       <label for="username">Username</label>
                       <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" required>
-                      <!-- <span class="required-star">*</span> -->
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
-                      <!-- <span class="required-star">*</span> -->
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control" name="password" id="password" required>
                     </div>
                     <!-- <div class="form-group form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -187,6 +193,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -196,6 +203,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+    <!-- <script src="../javascripts/callAjax.js"></script> -->
 </body>
 
 </html>
