@@ -1,0 +1,30 @@
+.modify-data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+th,
+td {
+  text-align: center;
+}
+
+.modify-data2 {
+  margin: 3.25rem auto;
+  max-width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modify-data button a {
+    color: white;
+}
+
+#delBtn i {
+    position: relative;
+    z-index: -1;
+}
+#delBtn {
+    position: relative;
+    z-index: 2;
+}

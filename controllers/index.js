@@ -30,10 +30,10 @@ exports.loadLogin = async (req, res) => {
     return user === undefined ? res.render("login", {error: false}) : res.redirect('/')
 }
 exports.checkLogin = async (req, res) => {
-    const user = await User.find({username: req.body.username});
-    const pass = await req.body.password;
+    const { username, password } = await req.body
+    const user = await User.find({username: username});
     if (user[0].password !== undefined) {
-        const isPasswordMatch = await bcrypt.compare(pass, user[0].password);
+        const isPasswordMatch = await bcrypt.compare(password, user[0].password);
         if (isPasswordMatch) {
             res.cookie('userID', user[0]._id );
             res.redirect('/');
@@ -56,7 +56,6 @@ exports.registerUser = async (req, res) => {
 exports.insertUser = async (req, res) => {
     let reqUser = await req.body;
     reqUser = await Object.assign(reqUser, {role: "user"});
-    console.log(reqUser)
     const user = await User.create(reqUser);
     user.save();
     res.redirect('/login');

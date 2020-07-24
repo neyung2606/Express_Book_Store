@@ -2,8 +2,10 @@ const express = require("express")
 const serverless = require('serverless-http');
 const app = express();
 const morgan = require("morgan");
+const methodOverride  = require("method-override");
 const userRoutes = require("./routes/user");
 const indexRoutes = require("./routes/index");
+const adminRoutes = require("./routes/admin");
 const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 const bookRoutes = require("./routes/book");
@@ -25,16 +27,18 @@ mongoose.connect(mongoDB, {
     }
 );
 
-
+app.use(methodOverride());
 app.use(morgan("dev"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(cookieParser())
 
+app.use("/user", userRoutes);
+app.use("/admin", adminRoutes);
 app.use("/book", bookRoutes);
 app.use("/", indexRoutes);
-app.use("/user", userRoutes);
+
 const port = process.env.PORT|| 8000;
 app.listen(port, () => {
     console.log(`A node js API listening on port ${port}!!`)
