@@ -10,6 +10,9 @@ const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 const bookRoutes = require("./routes/book");
 const dotenv = require('dotenv');
+const busboy = require('connect-busboy');
+
+
 // connect DB
 app.engine('ejs', require('ejs').__express);
 app.set('view engine', 'ejs');
@@ -27,7 +30,8 @@ mongoose.connect(mongoDB, {
     }
 );
 
-app.use(methodOverride());
+app.use(busboy());
+app.use(methodOverride('_method'));
 app.use(morgan("dev"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))

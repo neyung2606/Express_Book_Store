@@ -49,7 +49,7 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="/admin/books">
           <i class="fas fa-fw fa-wrench"></i>
           <span>Quản lí sách</span>
         </a>
@@ -249,32 +249,32 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <div class="col-md-12">
-            <a href="/admin/users/create" class="btn btn-warning mb-5"><i class="fas fa-plus"></i> New User</a>
+            <a href="/admin/books/create" class="btn btn-warning mb-5"><i class="fas fa-plus"></i> New book</a>
           </div>
           <table class="table">
             <thead>
               <tr>
                 <th scope="col">STT</th>
-                <th scope="col">Username</th>
-                <th scope="col">Email</th>
+                <th scope="col">Tên Sách</th>
+                <th scope="col">Tên Tác Giả</th>
                 <th scope="col">Chức năng</th>
               </tr>
             </thead>
             <tbody>
               <% let i = 1;
-                users.forEach( user => { %>
+                books.forEach( book => { %>
                 <tr>
                   <th scope="row"><%= i %></th>
-                  <td><%= user.username %></td>
-                  <td><%= user.email %></td>
+                  <td><%= book.name %></td>
+                  <td><%= book.author %></td>
                   <td class="modify-data">
-                    <form action="/admin/users/<%= user._id%>">
+                    <form action="/admin/books/<%= book._id%>">
                       <button class="btn btn-secondary"><i class="far fa-eye"></i></button>
                     </form>
-                    <form action="/admin/users/edit/<%= user._id %>">
+                    <form action="/admin/books/edit/<%= book._id %>">
                       <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
                     </form>
-                    <button class="btn btn-danger" data-id="<%= user._id %>" type="submit" id="delBtn"><i class="fas fa-trash"></i></button>
+                    <button class="btn btn-danger" data-id="<%= book._id %>" type="submit" id="delBookBtn"><i class="fas fa-trash"></i></button>
                   </td>
                 </tr>
               <% i++;}) %>

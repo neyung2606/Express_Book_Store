@@ -40,6 +40,6 @@ userSchema.pre('save', async function (next) {
         console.log(user.password)
     }
     next();
-})
+});
 
 module.exports = mongoose.model("User", userSchema);

@@ -49,7 +49,7 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="/admin/books">
           <i class="fas fa-fw fa-wrench"></i>
           <span>Quản lí sách</span>
         </a>
@@ -284,10 +284,7 @@
                     <i class="fas fa-edit"></i>
                     <span>Edit</span>
                 </a>
-                <a id="delBtn" data-id="<%= user[0]._id %>" href="/admin/users/<%= user[0]._id %>" class="btn btn-danger">
-                  <i class="fas fa-trash"></i>
-                  <span>Delete</span>
-                </a>
+                <button class="btn btn-danger" data-id="<%= user[0]._id %>" type="submit" id="delBtn"><i class="fas fa-trash"> Delete</i></button>
               </div>
             </div>
           </form>
@@ -295,19 +292,22 @@
           <form id="form">
             <input type="hidden" id="idUser" value="<%= user[0]._id %>">
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-6" data-validate="Username is required">
                 <label for="inputEmail4">Username</label>
-                <input type="username" class="form-control" id="username" name="username" value="<%= user[0].username %>">
+                <input type="username" class="form-control validate" id="username" name="username" data-id="0" value="<%= user[0].username %>">
+                <small id="usernameError" class="form-text text-danger font-weight-bold"></small>
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-6" data-validate="Email is required">
                 <label for="inputPassword4">Email</label>
-                <input type="text" class="form-control" id="email" name="email" value="<%= user[0].email %>">
+                <input type="text" class="form-control validate" id="email" name="email" data-id="1" value="<%= user[0].email %>">
+                <small id="emailError" class="form-text text-danger font-weight-bold"></small>
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-8">
+              <div class="form-group col-md-8" data-validate="Password is required">
                 <label for="inputCity">Password</label>
-                <input type="text" class="form-control" id="password" name="password" value="<%= user[0].password %>">
+                <input type="text" class="form-control validate" id="password" name="password" data-id="2" value="<%= user[0].password %>">
+                <small id="passError" class="form-text text-danger font-weight-bold"></small>
               </div>
               <div class="form-group col-md-4">
                 <label for="inputState">Role</label>
@@ -365,7 +365,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="/admin/logout">Logout</a>
         </div>
       </div>
     </div>
@@ -375,6 +375,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   <script src="/javascripts/callAPI.js"></script>
+  <script src="/javascripts/validateFormAdmin.js"></script>
 </body>
 
 </html>

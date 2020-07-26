@@ -44,7 +44,7 @@ exports.updateBook = (req, res) => {
 }
 
 exports.deleteBook = (req, res) => {
-    User.delete({_id: req.params.id}, (err, book) => {
+    User.deleteOne({_id: req.params.id}, (err, book) => {
         if (err) {
             res.status(400).json({
                 error: err

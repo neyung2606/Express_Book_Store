@@ -27,23 +27,25 @@ exports.loadShop = async (req, res) => {
 exports.loadLogin = async (req, res) => {
     const id = await req.cookies.userID;
     id === undefined ? user = undefined : user = await User.find({_id: id});
-    return user === undefined ? res.render("login", {error: false}) : res.redirect('/')
+    return user === undefined ? res.render("login", {errForm: false}) : res.redirect('/')
 }
 exports.checkLogin = async (req, res) => {
     const { username, password } = await req.body
     const user = await User.find({username: username});
-    if (user[0].password !== undefined) {
-        const isPasswordMatch = await bcrypt.compare(password, user[0].password);
+    console.log(user)
+    if (user.length != 0) {
+        console.log("alo")
+        const isPasswordMatch = await bcrypt.compare(password, user[0]['password']);
         if (isPasswordMatch) {
             res.cookie('userID', user[0]._id );
             res.redirect('/');
         }
         else {
-            res.render('login', {error: true});
+            res.render('login', {errForm: true});
         }
     }
     else {
-        res.redirect('/login', {error: true});
+        res.redirect('/login');
     }
 }
 exports.logOut = async (req, res) => {
