@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>BookStore</title>
 
   <!-- Custom fonts for this template-->
   <link
@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
     integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/adminStyle.css">
+  <link rel="shortcut icon" href="/images/icon.jpg" type="image/x-icon">
 
 </head>
 
@@ -35,11 +36,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/books">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">BookStore <sup>2</sup></div>
       </a>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -76,17 +77,16 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="admin/books/search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                aria-label="Search" aria-describedby="basic-addon2">
+              <input type="text" class="form-control bg-light border-0 small" name="search" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -346,7 +346,7 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="name">Tên Sách</label>
-                <input type="text" class="form-control" id="name" name="name" value="<%= book[0].name %>">
+                <input type="text" class="form-control" id="name" name="name" value="<%= book[0].name %>" required>
               </div>
               <div class="form-group col-md-6">
                 <div class="form-group">
@@ -357,40 +357,40 @@
               </div>
               <div class="form-group col-md-4">
                 <label for="price">Giá</label>
-                <input type="text" class="form-control" id="price" name="price" value="<%= book[0].price %>">
+                <input type="text" class="form-control" id="price" name="price" value="<%= book[0].price %>" required>
               </div>
               <div class="form-group col-md-4">
                 <label for="quantity">Số Lượng</label>
-                <input type="number" class="form-control" id="quantity" name="quantity" value="<%= book[0].quantity %>">
+                <input type="number" class="form-control" id="quantity" name="quantity" value="<%= book[0].quantity %>" required>
               </div>
               <div class="form-group col-md-4">
                 <label for="year">Năm Xuất Bản</label>
-                <input type="text" class="form-control" id="year" name="year" value="<%= book[0].year %>">
+                <input type="text" class="form-control" id="year" name="year" value="<%= book[0].year %>" required>
               </div>
               <div class="form-group col-md-12">
                 <label for="supplier">Nhà Cung Cấp</label>
-                <input type="text" class="form-control" id="supplier" name="supplier" value="<%= book[0].supplier %>">
+                <input type="text" class="form-control" id="supplier" name="supplier" value="<%= book[0].supplier %>" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="author">Tác Giả</label>
-                <input type="text" class="form-control" id="author" name="author" value="<%= book[0].author %>">
+                <input type="text" class="form-control" id="author" name="author" value="<%= book[0].author %>" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="publishing">Nhà Xuất Bản</label>
                 <input type="text" class="form-control" id="publishing" name="publishing"
-                  value="<%= book[0].publishing %>">
+                  value="<%= book[0].publishing %>" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="page">Số Trang</label>
-                <input type="text" class="form-control" id="page" name="page" value="<%= book[0].page %>">
+                <input type="text" class="form-control" id="page" name="page" value="<%= book[0].page %>" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="cover">Hình Thức Bìa</label>
-                <input type="text" class="form-control" id="cover" name="cover" value="<%= book[0].cover %>">
+                <input type="text" class="form-control" id="cover" name="cover" value="<%= book[0].cover %>" required>
               </div>
               <div class="form-group col-md-12">
                 <label for="description">Mô Tả</label>
-                <textarea class="form-control" id="description" rows="10" name="description"><%= book[0].description %></textarea>
+                <textarea class="form-control" id="description" rows="10" name="description" required><%= book[0].description %></textarea>
               </div>
               <!-- <div class="form-group col-md-4">
                 <label for="inputState">Role</label>
@@ -465,6 +465,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
   <script src="/javascripts/callAPI.js"></script>
+  <script src="/javascripts/validateFormAdmin.js"></script>
 </body>
 
 </html>

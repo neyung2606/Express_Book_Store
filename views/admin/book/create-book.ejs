@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>BookStore - Create</title>
 
   <!-- Custom fonts for this template-->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -19,6 +19,7 @@
   <link href="/stylesheets/sb-admin-2.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/adminStyle.css">
+  <link rel="shortcut icon" href="/images/icon.jpg" type="image/x-icon">
 
 </head>
 
@@ -31,11 +32,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/books">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">BookStore <sup>2</sup></div>
       </a>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -72,16 +73,16 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="admin/books/search" method="POST">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <input type="text" class="form-control bg-light border-0 small" name="search" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -266,35 +267,42 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label for="quantity">Số Lượng</label>
-                      <input type="number" class="form-control" id="quantity" name="quantity" required>
+                      <input type="number" class="form-control validate" id="quantity" name="quantity" required>
+                      <small id="usernameError" class="form-text text-danger font-weight-bold"></small>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="year">Năm Xuất Bản</label>
-                      <input type="text" class="form-control" id="year" name="year" required>
+                      <input type="text" class="form-control validate" id="year" name="year" required>
+                      <small id="usernameError" class="form-text text-danger font-weight-bold"></small>
                     </div>
                     <div class="form-group col-md-12">
                       <label for="supplier">Nhà Cung Cấp</label>
-                      <input type="text" class="form-control" id="supplier" name="supplier" required>
+                      <input type="text" class="form-control validate" id="supplier" name="supplier" required>
+                      <small id="usernameError" class="form-text text-danger font-weight-bold"></small>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="author">Tác Giả</label>
-                      <input type="text" class="form-control" id="author" name="author" required>
+                      <input type="text" class="form-control validate" id="author" name="author" required>
+                      <small id="usernameError" class="form-text text-danger font-weight-bold"></small>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="publishing">Nhà Xuất Bản</label>
-                      <input type="text" class="form-control" id="publishing" name="publishing" required>
+                      <input type="text" class="form-control validate" id="publishing" name="publishing" required>
+                      <small id="usernameError" class="form-text text-danger font-weight-bold"></small>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="page">Số Trang</label>
-                      <input type="text" class="form-control" id="page" name="page" required>
+                      <input type="text" class="form-control validate" id="page" name="page" required>
+                      <small id="usernameError" class="form-text text-danger font-weight-bold"></small>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="cover">Hình Thức Bìa</label>
-                      <input type="text" class="form-control" id="cover" name="cover" required>
+                      <input type="text" class="form-control validate" id="cover" name="cover" required>
+                      <small id="usernameError" class="form-text text-danger font-weight-bold"></small>
                     </div>
                     <div class="form-group col-md-12">
                       <label for="description">Mô Tả</label>
-                      <textarea class="form-control" id="description" rows="10" name="description" required></textarea>
+                      <textarea class="form-control validate" id="description" rows="10" name="description" required></textarea>
                     </div>
                     <button type="submit" id="editFormBtn" class="btn btn-primary modify-data2">Submit</button>
               </form>
@@ -348,7 +356,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-  <script src="/javascripts/callAPI.js"></script>
+  <script src="/javascripts/validateFormAdmin.js"></script>
 
 </body>
 

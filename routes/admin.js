@@ -36,6 +36,8 @@ router.get("/users/edit/:id", auth.requireAuth, adminController.editAdmin);
 router.put("/users/:id", auth.requireAuth, adminController.updateAdmin);
 router.delete("/users/:id", auth.requireAuth, adminController.deleteAdmin);
 router.post("/users/create", auth.requireAuth, adminController.createAdmin);
+// router.post("/users/search", auth.requireAuth, adminController.searchUser);
+
 
 router.get("/books/create", auth.requireAuth,adminController.loadCreateBook);
 router.get("/books", auth.requireAuth, adminController.indexBook);  
@@ -44,6 +46,7 @@ router.get("/books/edit/:id", auth.requireAuth, adminController.editBook);
 router.put("/books/:id", auth.requireAuth, upload.single('image'), adminController.updateBook);
 router.delete("/books/:id", auth.requireAuth, adminController.delBook);
 router.post("/books/create", auth.requireAuth, upload.single('image'), adminController.createBook);
+// router.post("/books/search", auth.requireAuth, adminController.searchBook);
 
 
 module.exports = router;

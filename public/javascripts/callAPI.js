@@ -146,33 +146,6 @@ $(document).ready(() => {
         });
         window.location.reload();
     });
-    // $("#demoForm").submit((e) => {
-    //     e.preventDefault();
-    //     const id = $('#idBook').val();
-    //     let img = $("input#imageValue").val();
-    //     if ($("#img").val() !== "") {
-    //         img = "book/" + $("#img").val().substring(12);
-    //     }
-    //     $.ajax({
-    //         enctype: 'multipart/form-data',
-    //         url: `/admin/books/${id}`,
-    //         method: "PUT",
-    //         data: {
-    //             name: $("#name").val(),
-    //             // img: img,
-    //             price: $("#price").val(),
-    //             quantity: $("#quantity").val(),
-    //             description: $("#description").val(),
-    //             supplier: $("#supplier").val(),
-    //             publishing: $("#publishing").val(),
-    //             author: $("#author").val(),
-    //             year: $("#year").val(),
-    //             page: $("#page").val(),
-    //             cover: $("#cover").val()
-    //         }
-    //     });
-    //     window.location.reload();
-    // })
 
     // ajax delete user
     $("button#delBtn").click((e) => {

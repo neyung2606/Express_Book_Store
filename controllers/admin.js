@@ -142,3 +142,29 @@ exports.createBook = async (req, res) => {
     book.save();
     res.redirect('/admin/books');
 }
+exports.searchBook = async (req, res) => {
+    if (req) {
+        console.log("vo day?")
+        const userLogin = await User.find({_id: req.cookies.adminID});
+        const books = await Book.find({});
+        const bookSearch = books.filter(book => {
+            console.log(book.name.includes(req.body.search))
+            book.name.includes(req.body.search)
+        })    
+        res.render("admin/book/index", {books: bookSearch, userLogin: userLogin})
+    } else {
+        console.log("vo day ak")
+        res.redirect('/admin/books');
+    }
+}
+exports.searchUser = async (req, res) => {
+    if (req.body.search != "") {
+        const userLogin = await User.find({_id: req.cookies.adminID});
+        const users = await User.find({});
+        const userSearch = users.filter(user => user.username.includes(req.body.search))
+        res.render("admin/user/index", {users: userSearch, userLogin: userLogin})
+    }
+    else {
+        res.redirect('/admin/users')
+    }
+}
