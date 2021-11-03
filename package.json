@@ -29,6 +29,6 @@
     "nodemon": "^2.0.4",
     "serverless": "^1.75.1",
     "serverless-http": "^2.5.0",
-    "validator": "^13.1.1"
+    "validator": "^13.7.0"
   }
 }
